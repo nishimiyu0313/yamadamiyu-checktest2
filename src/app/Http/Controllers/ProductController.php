@@ -32,7 +32,7 @@ class ProductController extends Controller
             );
             return view('index');
     }
-    public function detail()
+    public function show()
     {
         return view('detail');
     }
@@ -46,9 +46,4 @@ class ProductController extends Controller
             'description'
         ]);
     }
-
-
-
-
-}
-    
+}  
