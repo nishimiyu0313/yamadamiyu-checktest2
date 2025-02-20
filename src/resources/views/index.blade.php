@@ -24,7 +24,7 @@
     <diV class="product-list">
         @foreach ($products as $product)
         <div class="product-card">
-            <img src="{{ $product->image }}" alt="商品画像">
+            <img src= "{{ '/storage/' . $product['image'] }}" alt="商品画像">
             <h3>{{ $product->name }}</h3>
             <p>{{ $product->price }}</p>
             <p>{{ $product->description }}</p>
@@ -34,11 +34,11 @@
 
 
 
-    </diV>
-    <div class="pagination">
-        {{ $products->links('vendor.pagination.semantic-ui')}}
+</diV>
+<div class="pagination">
+    {{ $products->links('vendor.pagination.semantic-ui')}}
 
-    </div>
+</div>
 
 </diV>
 
