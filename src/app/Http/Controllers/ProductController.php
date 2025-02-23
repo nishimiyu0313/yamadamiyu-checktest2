@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Model\Season;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -48,12 +49,11 @@ class ProductController extends Controller
         ]);
     }
 
-    public function search(ProductRequest $request)
+    public function search(Request $request)
     {
-        $search = $request->input('search');
-        $product = Product::where('name', $request->input)->get();
-        return view('index', compact('search', 'product'));
-
+        $search = $request->input('keyword');
+        $products = Product::where('name', $search)->Paginate(6);
+        return view('index', compact('products'));
     }
 
 }  
