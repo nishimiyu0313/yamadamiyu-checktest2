@@ -15,10 +15,10 @@ class SeasonsTableSeeder extends Seeder
     public function run()
     {
          DB::table('seasons')->insert([
-            ['name' => 'summer'],
-            ['name' => 'spring'],
-            ['name' => 'fall'],
-            ['name' => 'winter']
+            ['name' => '夏'],
+            ['name' => '春'],
+            ['name' => '秋'],
+            ['name' => '冬']
          ]);
     }
 }
