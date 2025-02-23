@@ -47,4 +47,13 @@ class ProductController extends Controller
             'description'
         ]);
     }
+
+    public function search(ProductRequest $request)
+    {
+        $search = $request->input('search');
+        $product = Product::where('name', $request->input)->get();
+        return view('index', compact('search', 'product'));
+
+    }
+
 }  
