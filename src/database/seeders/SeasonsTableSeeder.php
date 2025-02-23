@@ -15,8 +15,8 @@ class SeasonsTableSeeder extends Seeder
     public function run()
     {
          DB::table('seasons')->insert([
-            ['name' => '夏'],
             ['name' => '春'],
+            ['name' => '夏'],
             ['name' => '秋'],
             ['name' => '冬']
          ]);
