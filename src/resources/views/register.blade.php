@@ -17,11 +17,14 @@
                     商品名<span class="register-form__required">必須</span>
                 </label>
                 <div class="register-form__name-inputs">
-                    <input class="regoster-form__input contact-form__name-input"  name="text" id="name"
+                    <input class="regoster-form__input contact-form__name-input" type="text" name="name" id="name"
                         value="{{ old('name') }}" placeholder="商品名を入力">
 
                 </div>
                 <div class="register-form__error-message">
+                    @error('name')
+                    {{ $message }}
+                    @enderror
 
                 </div>
             </div>
@@ -35,6 +38,9 @@
 
                 </div>
                 <div class="register-form__error-message">
+                    @error('price')
+                    {{ $message }}
+                    @enderror
 
                 </div>
             </div>
@@ -48,6 +54,10 @@
 
                 </div>
                 <div class="register-form__error-message">
+                    @error('image')
+                    {{ $message }}
+                    @enderror
+
 
                 </div>
             </div>
@@ -58,34 +68,37 @@
                 <div class="register-form__season-inputs">
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season" type="radio" id="spring" value="1" {{
+                            <input class="register-form__season-input" name="season_id" type="checkbox" id="spring" value="1" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">春</span>
                         </label>
                     </div>
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season" type="radio" id="summer" value="2" {{
+                            <input class="register-form__season-input" name="season_id" type="checkbox" id="summer" value="2" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">夏</span>
                         </label>
                     </div>
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season" type="radio" id="fall" value="3" {{
+                            <input class="register-form__season-input" name="season_id" type="checkbox" id="fall" value="3" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">秋</span>
                         </label>
                     </div>
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season" type="radio" id="winter" value="4" {{
+                            <input class="register-form__season-input" name="season_id" type="checkbox" id="winter" value="4" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">冬</span>
                         </label>
                     </div>
                 </div>
                 <div class="register-form__error-message">
+                    @error('season_id')
+                    {{ $message }}
+                    @enderror
 
                 </div>
             </div>
@@ -99,9 +112,12 @@
                     <textarea class="register-form__textarea" name="description" id="" cols="30" rows="10"
                         placeholder="商品の説明を入力">{{ old('description') }}</textarea>
 
-                    <p class="contact-form__error-message">
+                    <div class="register-form__error-message">
+                        @error('description')
+                        {{ $message }}
+                        @enderror
 
-                    </p>
+                    </div>
                 </div>
                 <form action="/products" method="get">
                     @csrf

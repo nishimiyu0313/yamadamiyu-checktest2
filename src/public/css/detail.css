@@ -1,0 +1,6 @@
+.update-form__error-message {
+  margin-top: 8px;
+  color: #ff0000;
+
+  grid-column: 2;
+}

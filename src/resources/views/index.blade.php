@@ -26,25 +26,23 @@
         <form class="product-form_show" action="/products/{productld}" method="post">
             <diV class="product-list">
                 @foreach ($products as $product)
-                <div class="product-card">
-                    <a>
-                        <img src="{{ '/storage/' . $product['image'] }}" alt="商品画像" class="product-image">
-                        <h3>{{ $product->name }}</h3>
-                        <p>{{ $product->price }}</p>
-                        <p>{{ $product->description }}</p>
-                    </a>
-                </div>
-                @endforeach
-            </diV>
-        </form>
-
-
-
+                <div class=" product-card">
+                <img src=" {{ '/storage/' . $product['image'] }}" alt=" 商品画像" class="product-image">
+                <p>{{ $product->name }}</p>
+                <p>¥{{ $product->price }}</p>
+                </a>
+            </div>
+            @endforeach
     </diV>
-    <div class="pagination">
-        {{ $products->links('vendor.pagination.semantic-ui')}}
+    </form>
 
-    </div>
+
+
+</diV>
+<div class="pagination">
+    {{ $products->links('vendor.pagination.semantic-ui')}}
+
+</div>
 
 </diV>
 

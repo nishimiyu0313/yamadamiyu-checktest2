@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Model\Season;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -14,35 +14,36 @@ class ProductController extends Controller
         return view('index', compact('products'));
     }
 
-    public function register(Request $request)
+    public function register()
     {
-        $products = $request->all();
-        return view('register', compact('products'));
+        return view('register');
     }
 
-    public function store($request)
+    public function store(ProductRequest $request)
     {
         Product::create(
             $request->only([
                 'name',
                 'price',
                 'image',
+                'season_id',
                 'description',
             ])
             );
             return view('index');
     }
-    public function show()
-    {
+    public function show($productId)
+    {        
         return view('detail');
     }
 
-    public function update($request)
+    public function update(ProductRequest $request)
     {
         $product = $request->only([
             'name',
             'price',
             'image',
+            'season_id',
             'description'
         ]);
     }

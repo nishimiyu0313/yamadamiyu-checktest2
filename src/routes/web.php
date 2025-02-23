@@ -20,6 +20,6 @@ use App\Models\Product;
 Route::get('/products', [ProductController::class, 'index']);
 Route::post('/products/register', [ProductController::class, 'register' ]);
 Route::post('/products', [ProductController::class, 'store']);
-Route::get('/products/{productld}', [ProductController::class, 'show']);
-Route::post('/products/{productld}/update', [ProductController::class, 'update']);
+Route::get('/products/{productId}', [ProductController::class, 'show'])->name('products.show');
+Route::post('/products/{productId}/update', [ProductController::class, 'update']);
 Route::get('/products/search', [ProductController::class, 'search']);

@@ -17,6 +17,10 @@
 
             </div>
             <div class="update-form__error-message">
+                @error('image')
+                {{ $message }}
+                @enderror
+
 
             </div>
         </div>
@@ -29,7 +33,9 @@
 
             </div>
             <div class="update-form__error-message">
-
+                @error('name')
+                {{ $message }}
+                @enderror
             </div>
         </div>
         <div class="update-form__group">
@@ -40,11 +46,13 @@
                 <input class="update-form__input" type="text" name="price" id="price">
 
             </div>
-            <div class="register-form__error-message">
-
+            <div class="update-form__error-message">
+                @error('price')
+                {{ $message }}
+                @enderror
             </div>
         </div>
-       
+
         <div class="update-form__group">
             <label class="update-form__label" for="season">
                 <span class="update-form__required">季節</span>
@@ -52,35 +60,37 @@
             <div class="update-form__season-inputs">
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="radio" id="spring" value="1" {{
+                        <input class="update-form__season-input" name="season" type="checkbox" id="spring" value="1" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                         <span class="update-form__gender-text">春</span>
                     </label>
                 </div>
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="radio" id="summer" value="2" {{
+                        <input class="update-form__season-input" name="season" type="checkbox" id="summer" value="2" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                         <span class="update-form__gender-text">夏</span>
                     </label>
                 </div>
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="radio" id="fall" value="3" {{
+                        <input class="update-form__season-input" name="season" type="checkbox" id="fall" value="3" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                         <span class="update-form__gender-text">秋</span>
                     </label>
                 </div>
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="radio" id="winter" value="4" {{
+                        <input class="update-form__season-input" name="season" type="checkbox" id="winter" value="4" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                         <span class="update-form__gender-text">冬</span>
                     </label>
                 </div>
             </div>
             <div class="update-form__error-message">
-
+                @error('season_id')
+                {{ $message }}
+                @enderror
             </div>
         </div>
 
@@ -91,6 +101,11 @@
             </label>
             <div class="updatae-form__price-inputs">
                 <textarea class="update-form__textarea" name="description" id="" cols="30" rows="10"></textarea>
+                <div class="update-form__error-message">
+                    @error('description')
+                    {{ $message }}
+                    @enderror
+                </div>
 
     </form>
     <form action="/products" method="get">
