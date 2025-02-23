@@ -21,16 +21,16 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        Product::create(
-            $request->only([
-                'name',
-                'price',
-                'image',
-                'season_id',
-                'description',
-            ])
-            );
-            return view('index');
+        $product = $request->only([
+            'name',
+            'price',
+            'image',
+            'season_id',
+            'description',
+        ]);
+        $product['image'] = $request->image->store('img', 'public');
+        Product::create($product);
+        return redirect('/products');
     }
     public function show($productId)
     {        
