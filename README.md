@@ -32,6 +32,9 @@ DBのテーブルにダミーデータを投入
 "The stream or file could not be opened"エラーが発生した場合
 ディレクトリ/ファイルの権限を変更
 6 sudo chmod -R 777 src/storage
+
+7 ストレージに保存したファイルを表示するためシンボリックリンクを作成
+php artisan storage:link
 ```
 ## 使用技術
 ```

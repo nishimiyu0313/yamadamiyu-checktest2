@@ -21,28 +21,28 @@
         </select>
         <form class="produtld-form" action="/products/register" method="get">
             @csrf
-            <input class="productld-form__delete-btn btn" type="submit" value="＋商品を追加">
+            <input class=" productld-form__delete-btn btn" type="submit" value="＋商品を追加">
         </form>
         <form class="product-form_show" action="/products/{productld}" method="post">
             <diV class="product-list">
                 @foreach ($products as $product)
                 <div class=" product-card">
-                <img src=" {{ '/storage/' . $product['image'] }}" alt=" 商品画像" class="product-image">
-                <p>{{ $product->name }}</p>
-                <p>¥{{ $product->price }}</p>
-                </a>
-            </div>
-            @endforeach
+                    <img src=" {{ '/storage/' . $product['image'] }}" alt=" 商品画像" class="product-image">
+                    <p>{{ $product->name }}</p>
+                    <p>¥{{ $product->price }}</p>
+                    </a>
+                </div>
+                @endforeach
+            </diV>
+        </form>
+
+
+
     </diV>
-    </form>
+    <div class="pagination">
+        {{ $products->links('vendor.pagination.semantic-ui')}}
 
-
-
-</diV>
-<div class="pagination">
-    {{ $products->links('vendor.pagination.semantic-ui')}}
-
-</div>
+    </div>
 
 </diV>
 
