@@ -10,7 +10,7 @@
 <div class="register">
     <h2 class="register__heading content__heading">商品登録</h2>
     <div class="register__inner">
-        <form class="register-form" action="/products" method="post">
+        <form class=form class="register-form" action="/products/register" method="post">
             @csrf
             <div class="register-form__group">
                 <label class="register-form__label" for="name">

@@ -19,7 +19,7 @@
             <option value="desc">高い順に表示</option>
             <option value="asc">安い順に表示</option>
         </select>
-        <form class="produtld-form" action="/products/register" method="post">
+        <form class="produtld-form" action="/products/register" method="get">
             @csrf
             <input class="productld-form__delete-btn btn" type="submit" value="＋商品を追加">
         </form>
