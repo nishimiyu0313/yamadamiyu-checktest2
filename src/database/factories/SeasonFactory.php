@@ -15,8 +15,6 @@ class SeasonFactory extends Factory
     {
         $seasons = ['春', '夏', '秋', '冬'];
 
-        return [
-                'name' => $this->faker->randomElement($seasons)
-            ];
+        
     }
 }

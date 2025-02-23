@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Season;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class SeasonsTableSeeder extends Seeder
@@ -14,6 +14,11 @@ class SeasonsTableSeeder extends Seeder
      */
     public function run()
     {
-        Season::factory()->count(4)->create();
+         DB::table('seasons')->insert([
+            ['name' => 'summer'],
+            ['name' => 'spring'],
+            ['name' => 'fall'],
+            ['name' => 'winter']
+         ]);
     }
 }
