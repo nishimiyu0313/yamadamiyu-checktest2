@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="detail">
-    <form class="update-form" action="/products/{productld}/update" method="post">
+    <form class="update-form" action="/products/{productld}/update" method="post" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
 
@@ -17,7 +17,8 @@
             <div class="update-form__image-inputs">
                 <input type="file" name="image" id="image">
                 <img src=" {{ '/storage/' . $product['image'] }}">
-            
+                <input type="hidden" name="id" value="{{ $product['id'] }}">
+
 
             </div>
             <div class=" update-form__error-message">
@@ -32,7 +33,7 @@
                 <span class="update-form__required">商品名</span>
             </label>
             <div class="update-form__name-input">
-                <input class="update-form__input" name="text" id="name" value="{{ $product['name'] }}">
+                <input class="update-form__input" name="name" id="name" value="{{ $product['name'] }}">
                 <input type="hidden" name="id" value="{{ $product['id'] }}">
 
             </div>
@@ -65,29 +66,29 @@
             <div class="update-form__season-inputs">
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="checkbox" id="spring" value="1" {{
-                old('season')==1 || old('season')==null ? 'checked' : '' }} value="{{ $product['season_id'] }}">
+                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="spring" value="1" {{
+                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }} value="{{ $product['season_id'] }}">
                         <span class="update-form__gender-text">春</span>
                     </label>
                 </div>
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="checkbox" id="summer" value="2" {{
-                old('season')==1 || old('season')==null ? 'checked' : '' }}>
+                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="summer" value="2" {{
+                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }}>
                         <span class="update-form__gender-text">夏</span>
                     </label>
                 </div>
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="checkbox" id="fall" value="3" {{
-                old('season')==1 || old('season')==null ? 'checked' : '' }}>
+                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="fall" value="3" {{
+                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }}>
                         <span class="update-form__gender-text">秋</span>
                     </label>
                 </div>
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season" type="checkbox" id="winter" value="4" {{
-                old('season')==1 || old('season')==null ? 'checked' : '' }}>
+                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="winter" value="4" {{
+                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }}>
                         <span class="update-form__gender-text">冬</span>
                     </label>
 

@@ -30,7 +30,8 @@ class ProductController extends Controller
             'description',
         ]);
         $product['image'] = $request->image->store('img', 'public');
-        Product::create($product);
+        $data = Product::create($product);
+        $data->seasons()->sync($request->season_id);
         return redirect('/products');
     }
     public function show($id)
@@ -40,14 +41,15 @@ class ProductController extends Controller
         return view('show', compact('product'));
     }
 
-    public function update(Request $request)
+    public function update(ProductRequest $request)
     {
         $product = $request->only([
             'name',
             'price',
-            
+            'image',
             'description'
         ]);
+        $product['image'] = $request->image->store('img', 'public');
         Product::find($request->id)->update($product);
         return redirect('/products');
     }

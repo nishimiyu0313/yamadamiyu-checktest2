@@ -66,36 +66,36 @@
                     季節<span class="register-form__required">必須</span>
                 </label>
                 <div class="register-form__season-inputs">
-                    @foreach($seasons as $season)
+
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season_id" type="checkbox" id="spring" value="1" {{
+                            <input class="register-form__season-input" name="season_id[]" type="checkbox" id="spring" value="1" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">春</span>
                         </label>
                     </div>
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season_id" type="checkbox" id="summer" value="2" {{
+                            <input class="register-form__season-input" name="season_id[]" type="checkbox" id="summer" value="2" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">夏</span>
                         </label>
                     </div>
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season_id" type="checkbox" id="fall" value="3" {{
+                            <input class="register-form__season-input" name="season_id[]" type="checkbox" id="fall" value="3" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">秋</span>
                         </label>
                     </div>
                     <div class="register-form__season-option">
                         <label class="register-form__season-label">
-                            <input class="register-form__season-input" name="season_id" type="checkbox" id="winter" value="4" {{
+                            <input class="register-form__season-input" name="season_id[]" type="checkbox" id="winter" value="4" {{
                 old('season')==1 || old('season')==null ? 'checked' : '' }}>
                             <span class="contact-form__gender-text">冬</span>
                         </label>
                     </div>
-                    @endforeach
+               
                 </div>
                 <div class="register-form__error-message">
                     @error('season_id')
