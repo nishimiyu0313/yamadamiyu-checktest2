@@ -23,18 +23,17 @@
             @csrf
             <input class=" productld-form__delete-btn btn" type="submit" value="＋商品を追加">
         </form>
-        <form class="product-form_show" action="/products/{productld}" method="post">
             <diV class="product-list">
                 @foreach ($products as $product)
-                <div class=" product-card">
-                    <img src=" {{ '/storage/' . $product['image'] }}" alt=" 商品画像" class="product-image">
-                    <p>{{ $product->name }}</p>
-                    <p>¥{{ $product->price }}</p>
+                <div class="product-card">
+                    <a href="/products/{{ $product['id'] }}">
+                        <img src="{{ '/storage/' . $product['image'] }}" alt=" 商品画像" class="product-image">
+                        <p>{{ $product->name }}</p>
+                        <p>￥{{ $product->price }}</p>
                     </a>
                 </div>
                 @endforeach
             </diV>
-        </form>
 
 
 

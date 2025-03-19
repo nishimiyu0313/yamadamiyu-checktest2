@@ -21,5 +21,7 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/register', [ProductController::class, 'register' ]);
 Route::post('/products/register', [ProductController::class, 'store']);
 Route::get('/products/search', [ProductController::class, 'search']);
-Route::get('/products/{productId}', [ProductController::class, 'show'])->name('products.show');
-Route::post('/products/{productId}/update', [ProductController::class, 'update']);
+Route::get('/products/{productId}', [ProductController::class, 'show'])->name('show');
+Route::patch('/products/{productId}/update', [ProductController::class, 'update']);
+Route::post('/products/{productId}/delete', [ProductController::class, 'destroy']);
+

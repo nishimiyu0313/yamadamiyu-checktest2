@@ -33,20 +33,29 @@ class ProductController extends Controller
         Product::create($product);
         return redirect('/products');
     }
-    public function show($productId)
-    {        
-        return view('detail');
+    public function show($id)
+    {
+        $product = Product::find($id);
+        // dd($product);
+        return view('show', compact('product'));
     }
 
-    public function update(ProductRequest $request)
+    public function update(Request $request)
     {
         $product = $request->only([
             'name',
             'price',
-            'image',
-            'season_id',
+            
             'description'
         ]);
+        Product::find($request->id)->update($product);
+        return redirect('/products');
+    }
+
+    public function destroy(Request $request)
+    {
+        Product::find($request->id)->delete();
+        return redirect('/products');
     }
 
     public function search(Request $request)
