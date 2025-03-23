@@ -64,36 +64,22 @@
 
             </label>
             <div class="update-form__season-inputs">
+                @foreach ($seasons as $season)
                 <div class="update-form__season-option">
                     <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="spring" value="1" {{
-                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }} value="{{ $product['season_id'] }}">
-                        <span class="update-form__gender-text">春</span>
+                        @if ($errors->any())
+                        <input class="update-form__season-input" type="checkbox" name="season_id[]"
+                            value="{{ $season->id }}"
+                            {{ in_array($season->id, old('season_id', [])) ? 'checked' : '' }}>
+                        @else
+                        <input class="update-form__season-input" type="checkbox" name="season_id[]"
+                            value="{{ $season->id }}"
+                            {{ $product->seasons->contains($season->id) ? 'checked' : '' }}>
+                        @endif
+                        <span class="update-form__gender-text">{{ $season->name }}</span>
                     </label>
                 </div>
-                <div class="update-form__season-option">
-                    <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="summer" value="2" {{
-                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }}>
-                        <span class="update-form__gender-text">夏</span>
-                    </label>
-                </div>
-                <div class="update-form__season-option">
-                    <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="fall" value="3" {{
-                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }}>
-                        <span class="update-form__gender-text">秋</span>
-                    </label>
-                </div>
-                <div class="update-form__season-option">
-                    <label class="update-form__season-label">
-                        <input class="update-form__season-input" name="season_id[]" type="checkbox" id="winter" value="4" {{
-                old('season_id')==1 || old('season_id')==null ? 'checked' : '' }}>
-                        <span class="update-form__gender-text">冬</span>
-                    </label>
-
-
-                </div>
+                @endforeach
             </div>
             <div class="update-form__error-message">
                 @error('season_id')

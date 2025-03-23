@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Model\Season;
+use App\Models\Season;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,8 @@ class ProductController extends Controller
 
     public function register()
     {
-        return view('register');
+        $seasons = Season::all();
+        return view('register', compact('seasons'));
     }
 
     public function store(ProductRequest $request)
@@ -37,8 +38,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        // dd($product);
-        return view('show', compact('product'));
+        $seasons = Season::all();
+        return view('show', compact('product', 'seasons'));
     }
 
     public function update(ProductRequest $request)

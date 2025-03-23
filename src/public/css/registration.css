@@ -1,0 +1,42 @@
+.register-form__error-message {
+  margin-top: 8px;
+  color: #ff0000;
+
+  grid-column: 2;
+}
+.register__inner {
+  margin: 32px auto 0;
+  width: 74%;
+  font-size: 16px;
+}
+
+/* フォーム */
+.register-form__group {
+  display: grid;
+  align-items: center;
+  margin-top: 32px;
+  display:flex;
+  flex-flow: column;
+  
+
+  grid-template-columns: 1fr 2fr;
+}
+
+    
+
+.regoster-form__input{
+  padding: 20px;
+    width: 600px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+
+}
+.register-form__required{
+  font-size: 12px;
+  padding: 2px;
+  margin-left: 5px;
+  background-color: #ff0000;
+  color: #fffdfd;
+}
