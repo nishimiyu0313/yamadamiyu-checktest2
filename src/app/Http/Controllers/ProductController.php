@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function  index()
+    public function  index(Request $request)
     {
+        $select = $request->price;
+        switch($select) {
+        case '1' :
+        $items = Product::orderBy('price', 'desc')->get();
+        case '2' :
+        $items = Product::orderBy('price', 'asc')->get();    
         $products = Product::Paginate(6);
-        return view('index', compact('products'));
+
+        }
+        return view('index', compact('products', 'items', 'select'));
     }
 
     public function register()

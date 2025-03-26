@@ -1,3 +1,19 @@
+
+.product-form{
+    margin: 0 auto;
+    padding: 30px 15px;    
+    max-width: 1230px;
+}
+
+.product-form_heading{
+    margin-bottom: 5px;
+    font-size: 35px;
+}
+
+
+
+
+
 .product-card {
     border: 1px solid #ccc;
     padding: 15px;

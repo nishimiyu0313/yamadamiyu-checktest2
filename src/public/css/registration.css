@@ -1,3 +1,4 @@
+
 .register-form__error-message {
   margin-top: 8px;
   color: #ff0000;
@@ -10,7 +11,6 @@
   font-size: 16px;
 }
 
-/* フォーム */
 .register-form__group {
   display: grid;
   align-items: center;
@@ -20,6 +20,13 @@
   
 
   grid-template-columns: 1fr 2fr;
+}
+.contact-form__group:first-of-type{
+  margin-top: 0;
+}
+
+.contact-form__group:last-of-type {
+  align-items: flex-start;
 }
 
     
