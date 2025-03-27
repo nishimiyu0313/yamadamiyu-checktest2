@@ -65,15 +65,16 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $query = Product::where('name', $request->keyword);
+        $query = Product::query();
+        $query = $query->where('name', $request->keyword);
         switch ($request->sort) {
             case '1':
                 $query->orderBy('price', 'desc')->get();
             case '2':
                 $query->orderBy('price', 'asc')->get();
             }            
-            $products = $query->pagenate(6);
-        dd($products);
+            $products = $query->paginate(6);
+        // dd($products);
         return view('index', compact('products'));
     }
 
