@@ -11,16 +11,10 @@ class ProductController extends Controller
 {
     public function  index(Request $request)
     {
-        $select = $request->price;
-        switch($select) {
-        case '1' :
-        $items = Product::orderBy('price', 'desc')->get();
-        case '2' :
-        $items = Product::orderBy('price', 'asc')->get();    
+         
         $products = Product::Paginate(6);
-
-        }
-        return view('index', compact('products', 'items', 'select'));
+        // dd($products);
+        return view('index', compact('products'));
     }
 
     public function register()
@@ -71,8 +65,14 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->input('keyword');
-        $products = Product::where('name', $search)->Paginate(6);
+        $query = Product::where('name', $request->keyword);
+        switch ($request->sort) {
+            case '1':
+                $query->orderBy('price', 'desc')->get();
+            case '2':
+                $query->orderBy('price', 'asc')->get();
+            }
+            $products = $query->pagenate(6);
         return view('index', compact('products'));
     }
 
