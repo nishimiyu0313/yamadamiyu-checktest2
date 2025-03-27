@@ -71,8 +71,9 @@ class ProductController extends Controller
                 $query->orderBy('price', 'desc')->get();
             case '2':
                 $query->orderBy('price', 'asc')->get();
-            }
+            }            
             $products = $query->pagenate(6);
+        dd($products);
         return view('index', compact('products'));
     }
 
