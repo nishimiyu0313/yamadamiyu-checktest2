@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductControllerController;
 use App\Http\Controllers\AuthController;
 use App\Models\Product;
+use App\Http\Controllers\ProfileController;
+
 
 
 
@@ -27,5 +28,8 @@ Route::get('/products/search', [ProductController::class, 'search']);
 Route::get('/products/{productId}', [ProductController::class, 'show'])->name('show');
 Route::patch('/products/{productId}/update', [ProductController::class, 'update']);
 Route::post('/products/{productId}/delete', [ProductController::class, 'destroy']);
+
+Route::get('/profile', [ProfileController::class, 'profile']);
+Route::post('/profile', [ProfileController::class, 'store']);
 });
 

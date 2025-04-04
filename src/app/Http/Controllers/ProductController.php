@@ -66,7 +66,11 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = Product::query();
-        $query = $query->where('name', $request->keyword);
+        if ($request->keyword) {
+        $query = $query->where('name','LIKE', "%{$request->keyword}%");
+        }
+        // dd($query);
+
         switch ($request->sort) {
             case '1':
                 $query->orderBy('price', 'desc')->get();
@@ -74,7 +78,8 @@ class ProductController extends Controller
                 $query->orderBy('price', 'asc')->get();
             }            
             $products = $query->paginate(6);
-        // dd($products);
+
+        
         return view('index', compact('products'));
     }
 

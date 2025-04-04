@@ -16,7 +16,9 @@
             </label>
             <div class="update-form__image-inputs">
                 <input type="file" name="image" id="image">
-                <img src=" {{ '/storage/' . $product['image'] }}">
+                <div class="update__img">
+                    <img src=" {{ '/storage/' . $product['image'] }}">
+                </div>
                 <input type="hidden" name="id" value="{{ $product['id'] }}">
 
 

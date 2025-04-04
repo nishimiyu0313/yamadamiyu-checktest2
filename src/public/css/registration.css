@@ -46,4 +46,17 @@
   margin-left: 5px;
   background-color: #ff0000;
   color: #fffdfd;
+  text-align:left;
+}
+.update-form__season-input{
+  border-radius: 50%
+}
+
+.contact-form__btn {
+  width: 150px;
+    height: 35px;
+    background: #ec8c18;
+    border-radius: 5px;
+    border: none;
+    margin-left: 90%;
 }
